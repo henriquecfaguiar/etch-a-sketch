@@ -47,20 +47,27 @@ img {
   display: block;
 }
 
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
 .container {
-  outline: auto;
+  box-shadow: rgb(0 0 0 / 40%) 0px 3px 8px;
   margin-inline: auto;
-  width: 300px;
+  width: 30rem;
+  height: 35rem;
 }
 
 .grid {
-  height: 1rem;
-  width: 1rem;
+  height: 1.5rem;
+  width: 1.5rem;
   display: inline-block;
-  margin: 1px;
 }
 
-.grid:hover,
-.grid:focus {
-  background-color: aqua;
+.hover {
+  background-color: black;
 }

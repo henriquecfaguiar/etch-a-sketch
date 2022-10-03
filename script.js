@@ -13,8 +13,10 @@ function createGrid() {
 function addHover() {
   const grid = document.querySelectorAll(".grid");
   grid.forEach(element => {
-    element.addEventListener("mouseover", (element) => { console.log(element) });
+    element.addEventListener("mouseover", (element) => { element.target.classList.add("hover") });
   });
 };
 
 createGrid();
+
+addHover();
