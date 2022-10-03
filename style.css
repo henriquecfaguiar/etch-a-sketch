@@ -1,3 +1,7 @@
+:root {
+  --grid-size: 16;
+}
+
 /* reset */
 
 *,
@@ -56,6 +60,9 @@ h1 {
 }
 
 .container {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-size), 1fr);
+  grid-template-rows: repeat(var(--grid-size), 1fr);
   box-shadow: rgb(0 0 0 / 40%) 0px 3px 8px;
   margin-inline: auto;
   width: 30rem;
@@ -63,8 +70,6 @@ h1 {
 }
 
 .grid {
-  height: 1.5rem;
-  width: 1.5rem;
   display: inline-block;
 }
 
