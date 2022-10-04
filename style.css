@@ -1,5 +1,24 @@
 :root {
   --grid-size: 16;
+
+  --clr-neutral-900: #1f2937;
+  --clr-neutral-400: #e5e7ebbc;
+  --clr-neutral-100: #F9FAF8;
+  --clr-accent: #3882f6;
+
+  --ff-primary: "Roboto", sans-serif;
+
+  /* small screen font sizes */
+  --fs-400: 1rem;
+  --fs-600: 1.25rem;
+  --fs-700: 1.75rem;
+  --fs-900: 2.5rem;
+
+  --fw-900: 900;
+  --fw-700: 700;
+  --fw-400: 400;
+  --fw-300: 300;
+
 }
 
 /* reset */
@@ -52,11 +71,32 @@ img {
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: var(--ff-primary);
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
 }
 
 h1 {
   text-align: center;
+}
+
+footer {
+  color: var(--clr-neutral-100);
+  background-color: var(--clr-neutral-900);
+  display: flex;
+  justify-content: center;
+  gap: .5em;
+  padding: 1em 0;
+}
+
+a:hover,
+a:focus {
+  opacity: .5;
+}
+
+i {
+  color: var(--clr-neutral-100);
 }
 
 .container {
