@@ -8,6 +8,7 @@ let gridSize = 16;
 
 newGridBtn.addEventListener("click", getNewGridSize)
 clearBtn.addEventListener("click", clearGrid);
+eraserBtn.addEventListener("toggle", removeHover);
 
 function createGrid(gridSize) {
   root.style.setProperty("--grid-size", gridSize);

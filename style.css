@@ -1,4 +1,5 @@
 :root {
+
   --grid-size: 16;
 
   --clr-neutral-900: #1f2937;
@@ -9,12 +10,10 @@
   --ff-primary: "Roboto", sans-serif;
 
   /* small screen font sizes */
-  --fs-400: 1rem;
-  --fs-600: 1.25rem;
-  --fs-700: 1.75rem;
+  --fs-400: .8rem;
+  --fs-500: 1rem;
   --fs-900: 2.5rem;
 
-  --fw-900: 900;
   --fw-700: 700;
   --fw-400: 400;
   --fw-300: 300;
@@ -24,10 +23,9 @@
 @media(min-width:50em) {
   :root {
     /* big screen font sizes */
-    --fs-400: 1.125rem;
-    --fs-600: 1.5rem;
-    --fs-700: 2.25rem;
-    --fs-900: 4rem;
+    --fs-400: 1rem;
+    --fs-500: 1.2rem;
+    --fs-900: 3.5rem;
   }
 }
 
@@ -83,7 +81,7 @@ img {
 /* layout */
 
 header {
-  padding: 1.5em 0;
+  padding: 2.5em 0;
 }
 
 main {
@@ -92,10 +90,14 @@ main {
   gap: 1rem;
   max-width: 70rem;
   padding: 0 1em;
+  margin-bottom: 1rem;
 }
 
 .control-pad {
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  gap: 1rem;
 }
 
 .control-pad>* {
@@ -107,40 +109,24 @@ main {
   flex-direction: column-reverse;
 }
 
-@media(min-width: 50em) {
-
-  main {
-    gap: 6.25rem;
-    padding: 0;
-  }
-
-  .control-pad {
-    flex-direction: column;
-    align-self: flex-start;
-  }
-
-  .control-pad>* {
-    flex-basis: auto;
-  }
-
-  .responsive-split {
-    flex-direction: row;
-  }
-}
-
 /* utility classes */
 
 .split {
   display: flex;
-  gap: 2rem;
+}
+
+/* general styling */
+
+html {
+  height: 100%;
 }
 
 body {
   font-family: var(--ff-primary);
   color: var(--clr-neutral-900);
   background-color: var(--clr-neutral-400);
+  min-height: 100%;
   display: grid;
-  min-height: 100vh;
   grid-template-rows: auto 1fr auto;
 }
 
@@ -151,14 +137,26 @@ h1 {
 
 footer {
   color: var(--clr-neutral-100);
-  font-size: var(--fs-400);
+  font-size: var(--fs-500);
   background-color: var(--clr-neutral-900);
   display: flex;
   justify-content: center;
   gap: .5em;
   padding: 1em 0;
+  margin-top: auto;
 }
 
+button {
+  border: solid 1px var(--clr-neutral-900);
+  border-radius: 5px;
+  font-size: var(--fs-400);
+  padding: .5em 1em;
+  cursor: pointer;
+  width: 10rem;
+}
+
+button:hover,
+button:focus,
 a:hover,
 a:focus {
   opacity: .5;
@@ -173,8 +171,8 @@ i {
   grid-template-columns: repeat(var(--grid-size), 1fr);
   grid-template-rows: repeat(var(--grid-size), 1fr);
   box-shadow: rgb(0 0 0 / 40%) 0px 3px 8px;
-  width: 30rem;
-  height: 35rem;
+  width: 34rem;
+  height: 34rem;
 }
 
 .grid-element {
@@ -183,4 +181,26 @@ i {
 
 .hover {
   background-color: black;
+}
+
+@media(min-width: 50em) {
+
+  main {
+    gap: 2rem;
+    padding: 0;
+  }
+
+  .control-pad {
+    flex-direction: column;
+    align-self: flex-start;
+    gap: 2rem;
+  }
+
+  .control-pad>* {
+    flex-basis: auto;
+  }
+
+  .responsive-split {
+    flex-direction: row;
+  }
 }
