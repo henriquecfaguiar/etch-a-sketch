@@ -3,12 +3,18 @@ const root = document.documentElement;
 const grid = document.querySelector(".grid");
 const newGridBtn = document.querySelector(".new-grid-btn");
 const clearBtn = document.querySelector(".clear-btn");
+const rgbBtn = document.querySelector(".rgb-btn");
 
 let gridSize = 16;
 
+newGridBtn.addEventListener("mouseout", (element) => { element.target.classList.remove("btn-hover") });
+rgbBtn.addEventListener("mouseout", (element) => { element.target.classList.remove("btn-hover") });
+clearBtn.addEventListener("mouseout", (element) => { element.target.classList.remove("btn-hover") });
+newGridBtn.addEventListener("mouseover", (element) => { element.target.classList.add("btn-hover") });
+rgbBtn.addEventListener("mouseover", (element) => { element.target.classList.add("btn-hover") });
+clearBtn.addEventListener("mouseover", (element) => { element.target.classList.add("btn-hover") });
 newGridBtn.addEventListener("click", getNewGridSize)
 clearBtn.addEventListener("click", clearGrid);
-eraserBtn.addEventListener("toggle", removeHover);
 
 function createGrid(gridSize) {
   root.style.setProperty("--grid-size", gridSize);
@@ -45,4 +51,3 @@ function clearGrid() {
 };
 
 createGrid(gridSize);
-addHover();
