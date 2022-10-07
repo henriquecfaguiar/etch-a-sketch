@@ -1,19 +1,17 @@
 const root = document.documentElement;
 
 const grid = document.querySelector(".grid");
-const newGridBtn = document.querySelector(".new-grid-btn");
-const clearBtn = document.querySelector(".clear-btn");
-const rgbBtn = document.querySelector(".rgb-btn");
+const buttons = document.querySelectorAll(".btn");
+const newGridBtn = document.querySelector(".new-grid");
+const clearBtn = document.querySelector(".clear");
+const rgbBtn = document.querySelector(".rgb");
+const singleClrBtn = document.querySelector(".single-color")
 
 let gridSize = 16;
 
-newGridBtn.addEventListener("mouseout", (element) => { element.target.classList.remove("btn-hover") });
-rgbBtn.addEventListener("mouseout", (element) => { element.target.classList.remove("btn-hover") });
-clearBtn.addEventListener("mouseout", (element) => { element.target.classList.remove("btn-hover") });
-newGridBtn.addEventListener("mouseover", (element) => { element.target.classList.add("btn-hover") });
-rgbBtn.addEventListener("mouseover", (element) => { element.target.classList.add("btn-hover") });
-clearBtn.addEventListener("mouseover", (element) => { element.target.classList.add("btn-hover") });
-newGridBtn.addEventListener("click", getNewGridSize)
+newGridBtn.addEventListener("click", getNewGridSize);
+singleClrBtn.addEventListener("click", activateSingleColor);
+rgbBtn.addEventListener("click", activateRgb);
 clearBtn.addEventListener("click", clearGrid);
 
 function createGrid(gridSize) {
@@ -28,21 +26,32 @@ function createGrid(gridSize) {
   addHover();
 };
 
-function getNewGridSize() {
-  let gridSize = Number(prompt("Choose a new grid size (max: 100)"));
-  console.log(gridSize);
-  if (gridSize === 0) {
-    gridSize = 16;
-  };
-  clearGrid();
-  createGrid(gridSize);
-};
-
 function addHover() {
   let grid = document.querySelectorAll(".grid-element");
   grid.forEach(element => {
     element.addEventListener("mouseover", (element) => { element.target.classList.add("hover") });
   });
+};
+
+function getNewGridSize() {
+  let gridSize = Number(prompt("Choose a new grid size (max: 100)"));
+  if (gridSize === 0) {
+    gridSize = 16;
+  } else if (gridSize > 100) {
+    gridSize = 100;
+  };
+  clearGrid();
+  createGrid(gridSize);
+};
+
+function activateSingleColor() {
+  rgbBtn.classList.remove("active");
+  singleClrBtn.classList.add("active");
+};
+
+function activateRgb() {
+  singleClrBtn.classList.remove("active");
+  rgbBtn.classList.add("active");
 };
 
 function clearGrid() {
@@ -51,3 +60,4 @@ function clearGrid() {
 };
 
 createGrid(gridSize);
+activateSingleColor();

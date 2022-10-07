@@ -155,10 +155,18 @@ button {
   width: 10rem;
 }
 
-.btn-hover,
-.btn-hover {
-  background-color: var(--clr-neutral-900);
+.btn {
+  transition: all .1s ease;
+}
+
+.active {
   color: var(--clr-neutral-100);
+  background-color: var(--clr-neutral-900);
+}
+
+.btn:hover {
+  cursor: pointer;
+  transform: scale(1.05);
 }
 
 a:hover,
