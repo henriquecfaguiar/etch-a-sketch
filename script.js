@@ -26,6 +26,7 @@ function createGrid(gridSize) {
       grid.appendChild(gridElement);
     };
   };
+  activateSingleColor();
 };
 
 function getNewGridSize() {
