@@ -7,6 +7,7 @@ const clearBtn = document.querySelector(".clear");
 const rgbBtn = document.querySelector(".rgb");
 const singleClrBtn = document.querySelector(".single-color")
 
+
 let gridSize = 16;
 
 newGridBtn.addEventListener("click", getNewGridSize);
@@ -47,16 +48,28 @@ function getNewGridSize() {
 function activateSingleColor() {
   rgbBtn.classList.remove("active");
   singleClrBtn.classList.add("active");
+  changeColor();
 };
 
 function activateRgb() {
   singleClrBtn.classList.remove("active");
   rgbBtn.classList.add("active");
+  changeColor();
+};
+
+function changeColor() {
+  const activeBtn = document.querySelector(".active");
+  let grid = document.querySelectorAll(".grid-element");
+  if (activeBtn.classList[0] === "rgb") {
+    grid.forEach((element) => element.addEventListener("mouseover", () => { element.style.backgroundColor = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)} )` }));
+  } else {
+    grid.forEach((element) => element.addEventListener("mouseover", () => { element.style.backgroundColor = "black" }));
+  }
 };
 
 function clearGrid() {
   let grid = document.querySelectorAll(".grid-element");
-  grid.forEach((element) => element.classList.remove("hover"));
+  grid.forEach((element) => element.style.backgroundColor = "white");
 };
 
 createGrid(gridSize);
