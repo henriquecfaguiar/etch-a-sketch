@@ -183,16 +183,13 @@ i {
   grid-template-columns: repeat(var(--grid-size), 1fr);
   grid-template-rows: repeat(var(--grid-size), 1fr);
   box-shadow: rgb(0 0 0 / 40%) 0px 3px 8px;
+  background-color: var(--clr-neutral-100);
   width: 34rem;
   height: 34rem;
 }
 
 .grid-element {
   display: inline-block;
-}
-
-.hover {
-  background-color: black;
 }
 
 @media(min-width: 50em) {

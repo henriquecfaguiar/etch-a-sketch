@@ -5,6 +5,7 @@ const buttons = document.querySelectorAll(".btn");
 const newGridBtn = document.querySelector(".new-grid");
 const clearBtn = document.querySelector(".clear");
 const rgbBtn = document.querySelector(".rgb");
+const eraserBtn = document.querySelector(".eraser");
 const singleClrBtn = document.querySelector(".single-color")
 
 
@@ -14,6 +15,7 @@ newGridBtn.addEventListener("click", getNewGridSize);
 singleClrBtn.addEventListener("click", activateSingleColor);
 rgbBtn.addEventListener("click", activateRgb);
 clearBtn.addEventListener("click", clearGrid);
+eraserBtn.addEventListener("click", activateEraser);
 
 function createGrid(gridSize) {
   root.style.setProperty("--grid-size", gridSize);
@@ -24,14 +26,6 @@ function createGrid(gridSize) {
       grid.appendChild(gridElement);
     };
   };
-  addHover();
-};
-
-function addHover() {
-  let grid = document.querySelectorAll(".grid-element");
-  grid.forEach(element => {
-    element.addEventListener("mouseover", (element) => { element.target.classList.add("hover") });
-  });
 };
 
 function getNewGridSize() {
@@ -47,14 +41,24 @@ function getNewGridSize() {
 
 function activateSingleColor() {
   rgbBtn.classList.remove("active");
+  eraserBtn.classList.remove("active");
   singleClrBtn.classList.add("active");
   changeColor();
 };
 
 function activateRgb() {
   singleClrBtn.classList.remove("active");
+  eraserBtn.classList.remove("active");
   rgbBtn.classList.add("active");
   changeColor();
+};
+
+function activateEraser() {
+  singleClrBtn.classList.remove("active");
+  rgbBtn.classList.remove("active");
+  eraserBtn.classList.add("active");
+  let grid = document.querySelectorAll(".grid-element");
+  grid.forEach((element) => element.addEventListener("mouseover", () => { element.style.backgroundColor = "#F9FAF8" }));
 };
 
 function changeColor() {
@@ -69,7 +73,7 @@ function changeColor() {
 
 function clearGrid() {
   let grid = document.querySelectorAll(".grid-element");
-  grid.forEach((element) => element.style.backgroundColor = "white");
+  grid.forEach((element) => element.style.backgroundColor = "#F9FAF8");
 };
 
 createGrid(gridSize);
