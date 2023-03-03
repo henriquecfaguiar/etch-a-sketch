@@ -22,29 +22,33 @@
   <body>
     <!-- Global Container -->
     <div
-      class="relative mx-auto flex min-h-screen flex-col items-center justify-start"
+      class="relative mx-auto flex min-h-screen flex-col items-center justify-start bg-gradient-to-b from-slate-500 to-slate-600"
     >
       <header>
         <h1
-          class="my-4 text-center text-5xl sm:my-6 sm:text-6xl md:my-10 md:text-7xl"
+          class="my-4 text-center text-5xl font-bold text-slate-900 sm:my-6 sm:text-6xl md:my-10 md:text-7xl"
         >
-          Etch-A-Sketch
+          Etch-<span class="text-yellow-300">A</span>-Sketch
         </h1>
       </header>
       <main
-        class="flex flex-col-reverse md:flex-row md:justify-center md:gap-10 md:p-4"
+        class="flex flex-col-reverse items-center gap-6 md:flex-row md:items-start md:gap-10 md:p-4"
       >
         <!-- Menu Buttons -->
-        <div class="flex flex-col">
-          <button class="new-grid-btn">New Grid Size</button>
-          <button class="single-color-btn">Single Color</button>
-          <button class="rgb-btn">RGB</button>
-          <button class="clear-btn">Eraser</button>
-          <button class="eraser-btn">Clear</button>
+        <div class="flex flex-col gap-3">
+          <button class="new-grid-btn self-center">New Grid Size</button>
+          <div class="flex flex-col gap-3 sm:flex-row md:flex-col">
+            <button class="single-color-btn">Single Color</button>
+            <button class="rgb-btn">RGB</button>
+          </div>
+          <div class="flex flex-col gap-3 sm:flex-row md:flex-col">
+            <button class="clear-btn">Eraser</button>
+            <button class="eraser-btn">Clear</button>
+          </div>
         </div>
         <!-- Grid -->
         <div
-          class="grid h-72 w-72 shadow-grid sm:h-120 sm:w-120 md:h-160 md:w-160"
+          class="grid h-72 w-72 bg-slate-50 shadow-grid sm:h-120 sm:w-120 md:h-160 md:w-160"
         ></div>
       </main>
       <footer

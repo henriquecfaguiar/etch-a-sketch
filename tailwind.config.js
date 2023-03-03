@@ -3,14 +3,15 @@ module.exports = {
   content: ['./*.html'],
   theme: {
     extend: {
+      screens: {
+        md: '900px',
+      },
       fontFamily: {
         sans: ['JetBrains Mono', 'sans-serif'],
       },
       spacing: {
-        74: '18.5rem',
         120: '30rem',
         160: '40rem',
-        280: '70rem',
       },
       boxShadow: {
         grid: 'rgb(0 0 0 / 40%) 0px 2px 8px;',
