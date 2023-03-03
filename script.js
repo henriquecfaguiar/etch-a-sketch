@@ -6,12 +6,12 @@ const newGridBtn = document.querySelector('.new-grid-btn');
 const clearBtn = document.querySelector('.clear-btn');
 const rgbBtn = document.querySelector('.rgb-btn');
 const eraserBtn = document.querySelector('.eraser-btn');
-const singleClrBtn = document.querySelector('.single-color-btn');
+const blackClrBtn = document.querySelector('.black-color-btn');
 
 let gridSize = 16;
 
 newGridBtn.addEventListener('click', getNewGridSize);
-singleClrBtn.addEventListener('click', activateSingleColor);
+blackClrBtn.addEventListener('click', activateBlackColor);
 rgbBtn.addEventListener('click', activateRgb);
 clearBtn.addEventListener('click', clearGrid);
 eraserBtn.addEventListener('click', activateEraser);
@@ -25,7 +25,7 @@ function createGrid(gridSize) {
       grid.appendChild(gridElement);
     }
   }
-  activateSingleColor();
+  activateBlackColor();
 }
 
 function getNewGridSize() {
@@ -39,36 +39,36 @@ function getNewGridSize() {
   createGrid(gridSize);
 }
 
-function activateSingleColor() {
+function activateBlackColor() {
   rgbBtn.classList.remove('active');
   eraserBtn.classList.remove('active');
-  singleClrBtn.classList.add('active');
+  blackClrBtn.classList.add('active');
   changeColor();
 }
 
 function activateRgb() {
-  singleClrBtn.classList.remove('active');
+  blackClrBtn.classList.remove('active');
   eraserBtn.classList.remove('active');
   rgbBtn.classList.add('active');
   changeColor();
 }
 
 function activateEraser() {
-  singleClrBtn.classList.remove('active');
+  blackClrBtn.classList.remove('active');
   rgbBtn.classList.remove('active');
   eraserBtn.classList.add('active');
   let grid = document.querySelectorAll('.grid-element');
   grid.forEach((element) =>
     element.addEventListener('mouseover', () => {
-      element.style.backgroundColor = '#F9FAF8';
+      element.style.backgroundColor = '#f8fafc';
     })
   );
 }
 
 function changeColor() {
-  const activeBtn = document.querySelector('.active');
+  // const activeBtn = document.querySelector('.active');
   let grid = document.querySelectorAll('.grid-element');
-  if (activeBtn.classList[0] === 'rgb') {
+  if (rgbBtn.classList.contains('active')) {
     grid.forEach((element) =>
       element.addEventListener('mouseover', () => {
         element.style.backgroundColor = `rgb(${Math.floor(
@@ -89,8 +89,8 @@ function changeColor() {
 
 function clearGrid() {
   let grid = document.querySelectorAll('.grid-element');
-  grid.forEach((element) => (element.style.backgroundColor = '#F9FAF8'));
+  grid.forEach((element) => (element.style.backgroundColor = '#f8fafc'));
 }
 
 createGrid(gridSize);
-activateSingleColor();
+activateBlackColor();
