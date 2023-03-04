@@ -11,7 +11,7 @@ module.exports = {
       },
       spacing: {
         120: '30rem',
-        160: '40rem',
+        160: '35rem',
       },
       boxShadow: {
         grid: 'rgb(0 0 0 / 40%) 0px 2px 8px;',
